@@ -1,0 +1,47 @@
+<!-- HTML Code (result.html) 
+ result.html displays the prediction result for the uploaded image.
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Retinal Image Analysis Result</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ </head>
+ <body>
+     <div class="container">
+         <h1 class="mt-5">Analysis Result</h1>
+         <p class="lead">The result for the uploaded retinal image is:</p>
+
+         <table id="predictionresultdata" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Image Name</th>
+                <th>CNN Prediction</th>
+                <th>KNN Prediction</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for PredictionResult in PredictionResults %}
+                <tr>
+                  <td>{{ PredictionResult.imageName }}</td>
+                  <td>{{ PredictionResult.CNNPredResult }}</td>
+                  <td>{{ PredictionResult.KNNPredResult }}</td>
+                  <td>{{ PredictionResult.Comments }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+         <div class="alert alert-info" role="alert">
+             {{result}} for file name: {{filename}}
+         </div>
+         <form action="/siuassindex" method="post" enctype="multipart/form-data">
+         <button type="submit" class="btn btn-primary">Upload Another Image</button>
+         </form>
+     </div>
+ </body>
+ </html>

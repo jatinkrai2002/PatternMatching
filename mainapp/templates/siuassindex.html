@@ -1,0 +1,25 @@
+<!--HTML Code (index.html) 
+index.html provides a form for users to upload retinal images. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retinal Image Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Retinal Image Analysis</h1>
+        <p class="lead">Upload a retinal image to receive disease detection results.</p>
+        <form action="{{ url_for('uploaded') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose an image file</label>
+                <input type="file" class="form-control-file" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
